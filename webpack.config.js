@@ -5,7 +5,7 @@ module.exports = (env, argv) => {
   const production = argv.mode === 'production';
   return {
     context: __dirname,
-    entry: './src/index.js',
+    entry: './src/index.jsx',
     output: {
       path: path.join(__dirname, 'public'),
       filename: 'script.js'
@@ -21,6 +21,12 @@ module.exports = (env, argv) => {
     },
     module: {
       rules: [
+        {
+          enforce: 'pre',
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          loader: 'eslint-loader'
+        },
         {
           test: /\.jsx?$/,
           exclude: /node_modules/,

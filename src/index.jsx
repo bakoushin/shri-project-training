@@ -5,7 +5,7 @@ import {string, number, arrayOf, shape} from 'prop-types';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import reducer from './store/reducer';
-import Form from './Form';
+import Form from './components/Form/Form';
 
 const App = () => <div>hey hey hey hey</div>;
 

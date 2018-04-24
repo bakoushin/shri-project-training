@@ -3,6 +3,7 @@ const webpack = require('webpack');
 
 module.exports = (env, argv) => {
   const production = argv.mode === 'production';
+  const development = !production;
   return {
     context: __dirname,
     entry: './src/index.jsx',
@@ -37,7 +38,7 @@ module.exports = (env, argv) => {
           loader: 'babel-loader'
         },
         {
-          test: /\.scss$/,
+          test: /\.s?css$/,
           use: [
             {
               loader: 'style-loader'
@@ -45,14 +46,21 @@ module.exports = (env, argv) => {
             {
               loader: 'css-loader',
               options: {
-                sourceMap: true,
-                importLoaders: 1
+                minimize: production,
+                sourceMap: development,
+                importLoaders: 2
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: development
               }
             },
             {
               loader: 'sass-loader',
               options: {
-                sourceMap: true
+                sourceMap: development
               }
             }
           ]

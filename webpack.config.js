@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = (env, argv) => {
   const production = argv.mode === 'production';
@@ -17,7 +16,8 @@ module.exports = (env, argv) => {
       hot: true,
       compress: true,
       overlay: true,
-      stats: 'errors-only'
+      stats: 'errors-only',
+      contentBase: path.join(__dirname, 'public')
     },
     module: {
       rules: [
@@ -68,13 +68,6 @@ module.exports = (env, argv) => {
         }
       ]
     },
-    plugins: [
-      new webpack.ProgressPlugin(),
-      new HtmlWebPackPlugin({
-        template: './src/index.html',
-        filename: './index.html'
-      })
-      // new CleanWebpackPlugin([basename(projectPath.dist)], {root: projectPath.root}),
-    ]
+    plugins: [new webpack.ProgressPlugin()]
   };
 };

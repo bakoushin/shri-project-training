@@ -14,6 +14,14 @@ module.exports = {
     node: true
   },
   rules: {
-    'prettier/prettier': 'error'
+    'prettier/prettier': 'error',
+    'jsx-a11y/anchor-is-valid': [
+      'error',
+      {
+        components: ['Link'],
+        specialLink: ['to', 'hrefLeft', 'hrefRight'],
+        aspects: ['noHref', 'invalidHref', 'preferButton']
+      }
+    ]
   }
 };

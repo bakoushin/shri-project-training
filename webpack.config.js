@@ -20,7 +20,8 @@ module.exports = (env, argv) => {
       compress: true,
       overlay: true,
       stats: 'errors-only',
-      contentBase: path.join(__dirname, 'public')
+      contentBase: path.join(__dirname, 'public'),
+      historyApiFallback: true
     },
     module: {
       rules: [

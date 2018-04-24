@@ -6,6 +6,9 @@ module.exports = (env, argv) => {
   return {
     context: __dirname,
     entry: './src/index.jsx',
+    resolve: {
+      extensions: ['.js', '.jsx', '.json']
+    },
     output: {
       path: path.join(__dirname, 'public'),
       filename: 'script.js'

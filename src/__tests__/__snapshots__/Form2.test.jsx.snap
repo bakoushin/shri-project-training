@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form rendres correctly 1`] = `
+<div
+  className="Form"
+>
+  <h1>
+    Hey! 
+  </h1>
+  <p>
+    Blah blah blah
+  </p>
+  <BrowserRouter>
+    <Link
+      replace={false}
+      to="/card"
+    >
+      card
+    </Link>
+  </BrowserRouter>
+</div>
+`;

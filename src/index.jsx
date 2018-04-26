@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
-import {string, number, arrayOf, shape} from 'prop-types';
+import {string} from 'prop-types';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import reducer from './store/reducer';
 import Form from './components/Form/Form';
+import List from './components/List/List';
 
 const App = () => <div>hey hey hey hey</div>;
 
@@ -19,17 +20,6 @@ const Card = () => (
 );
 
 const planets = [{id: 1, name: 'Mercury'}, {id: 2, name: 'Venus'}, {id: 3, name: 'Earth'}, {id: 4, name: 'Mars'}];
-
-const List = ({list}) => <ul>{list.map(({id, name}) => <li key={id}>{name}</li>)}</ul>;
-
-List.propTypes = {
-  list: arrayOf(
-    shape({
-      id: number.isRequired,
-      name: string.isRequired
-    })
-  ).isRequired
-};
 
 const data = {
   city: 'Moscow',

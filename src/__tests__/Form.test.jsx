@@ -1,9 +1,17 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import {shallow} from 'enzyme';
 import Form from '../components/Form/Form';
 
-test('Form rendres correctly', () => {
-  const component = renderer.create(<Form />);
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+describe('Form', () => {
+  it('rendres correctly', () => {
+    const component = shallow(<Form />);
+    expect(component).toMatchSnapshot();
+  });
+
+  it('rendres correct text based on input', () => {
+    const inputText = 'hello world';
+    const component = shallow(<Form />);
+    component.find('input').simulate('change', {target: {value: inputText}});
+    expect(component.find('.Form-Data').text()).toEqual(inputText);
+  });
 });

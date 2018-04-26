@@ -9,7 +9,8 @@
     "lint": "npm run eslint",
     "eslint": "eslint ./src/**/*.{js,jsx}",
     "test": "jest",
-    "test:update": "jest -u"
+    "test:update": "jest -u",
+    "test:coverage": "jest --coverage"
   },
   "author": "Alex Bakoushin <alex@bakoush.in>",
   "license": "MIT",

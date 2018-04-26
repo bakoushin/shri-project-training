@@ -17,15 +17,19 @@ exports[`Form rendres correctly 1`] = `
   />
   <p
     className="Form-Data"
-  />
-  <BrowserRouter>
-    <Link
-      replace={false}
-      to="/card"
-    >
-      card
-    </Link>
-  </BrowserRouter>
-  <Status />
+  >
+    
+  </p>
+  <a
+    href="/card"
+    onClick={[Function]}
+  >
+    card
+  </a>
+  <p
+    className="Status"
+  >
+    Everything is alright
+  </p>
 </div>
 `;

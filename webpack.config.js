@@ -17,7 +17,6 @@ module.exports = (env, argv) => {
     devtool: production ? false : 'cheap-module-eval-source-map',
     stats: 'errors-only',
     devServer: {
-      hot: true,
       compress: true,
       overlay: true,
       stats: 'errors-only',

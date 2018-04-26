@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Status from '../Status/Status';
 import './Form.scss';
 
@@ -21,9 +21,7 @@ class Form extends Component {
         <p>Blah blah blah</p>
         <input type="text" value={this.state.inputData} onChange={this.inputChangeHandler} />
         <p className="Form-Data">{this.state.inputData}</p>
-        <BrowserRouter>
-          <Link to="/card">card</Link>
-        </BrowserRouter>
+        <Link to="/card">card</Link>
         <Status />
       </div>
     );

@@ -1,14 +1,11 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {hot} from 'react-hot-loader';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 import {string} from 'prop-types';
-import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import reducer from './store/reducer';
+import store from './store/store';
 import Form from './components/Form/Form';
 import List from './components/List/List';
-
-const store = createStore(reducer);
 
 const Card = ({text}) => (
   <div>
@@ -46,20 +43,20 @@ Data.propTypes = {
 };
 
 const App = () => (
-  <div>
+  <Fragment>
     <Data city={data.city} country={data.country} />
     <List list={planets} />
     <p>sssss</p>
-    <Provider store={store}>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Provider store={store}>
         <Switch>
           <Route exact path="/" component={Form} />
           <Route exact path="/card" component={() => <Card text="cool!" />} />
           <Route render={() => <div>404</div>} />
         </Switch>
-      </BrowserRouter>
-    </Provider>
-  </div>
+      </Provider>
+    </BrowserRouter>
+  </Fragment>
 );
 
 export default hot(module)(App);
